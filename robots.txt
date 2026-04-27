@@ -1,0 +1,15 @@
+# Разрешаем индексацию всем классическим поисковикам (Google, Yandex, Bing)
+User-agent: *
+Allow: /
+
+# Приветствуем ИИ-ботов OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+# Приветствуем ИИ-бота Google (Gemini / SGE)
+User-agent: Google-Extended
+Allow: /
+
+# Приветствуем ИИ-бота Perplexity
+User-agent: PerplexityBot
+Allow: /
