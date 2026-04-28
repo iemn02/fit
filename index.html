@@ -3,7 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Fitness Timer</title>
+    <title>Free HIIT Timer Online — Tabata, Boxing & EMOM Interval Timer</title>
+    <meta name="description" content="Free browser-based interval timer for HIIT, Tabata (20/10), boxing rounds, and EMOM workouts. No app, no ads, works offline. Customize prep, work, rest, and rounds.">
+    <meta name="theme-color" content="#121418">
+    <meta property="og:title" content="Free HIIT Interval Timer — Tabata, Boxing, EMOM">
+    <meta property="og:description" content="Customizable Tabata, boxing round, and HIIT interval timer. Runs in any browser, no install, works offline.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Fitness Timer",
+          "description": "Free browser-based interval timer for HIIT, Tabata, boxing rounds, and EMOM workouts. Works offline, no install required.",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Any (web browser)",
+          "browserRequirements": "Requires JavaScript and a modern browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": "Tabata timer, Boxing round timer, EMOM timer, HIIT intervals, Offline mode, Sound alerts, Screen wake lock, Customizable prep work rest rounds"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does this fitness timer work offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Once the page loads, it runs entirely on your device's internal clock and keeps working without an internet connection."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I set up a Tabata timer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Set Work to 20 seconds, Rest to 10 seconds, and Rounds to 8. Add a 10 second prep if you want a countdown before the first interval. Press START to begin."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this as a boxing round timer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Set Work to 180 seconds (3 minutes) and Rest to 60 seconds (1 minute), then choose 10 to 12 rounds for a standard amateur or pro boxing session."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will the screen stay on during my workout?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The timer uses the Screen Wake Lock API on supported browsers and a fallback method elsewhere, so your screen will not dim or lock while a workout is running."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the timer make sounds?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. There are distinct tones for the start of work, start of rest, the final three second countdown of each phase, and a finishing chime. You can mute everything with the speaker button in the top right corner."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are my settings saved between sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Your prep, work, rest, rounds and mute preferences are stored locally in your browser, so the timer reopens with your previous configuration."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why use a web timer instead of an app?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A web timer gives you instant access on any device with no install, no permissions, no storage usage, and no ads. It is also easier to share with a training partner."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nosleep/0.12.0/NoSleep.min.js"></script>
     <style>
@@ -189,7 +278,6 @@
             font-weight: 600;
         }
 
-        /* Общие стили для ВСЕХ кнопок-спойлеров (Настройки и FAQ) */
         .spoiler-container {
             width: 100%;
         }
@@ -215,7 +303,6 @@
             color: var(--text-main);
         }
 
-        /* Прячем стандартную стрелочку */
         .btn-spoiler::-webkit-details-marker {
             display: none;
         }
@@ -270,6 +357,79 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: -10px;
+        }
+
+        .page-header h1 {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .page-header p {
+            font-size: 12px;
+            color: #4b5563;
+            margin-top: 6px;
+            max-width: 320px;
+            line-height: 1.4;
+        }
+
+        .faq-content h2 {
+            color: var(--text-main);
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .faq-content h3 {
+            color: var(--text-main);
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            margin-top: 5px;
+        }
+
+        .faq-content p {
+            margin-bottom: 16px;
+        }
+
+        .faq-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .faq-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .faq-item {
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #2d333b;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .faq-item strong {
+            color: var(--text-main);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -277,7 +437,12 @@
     <button class="btn-sound" id="btnSound">🔊</button>
 
     <div class="container">
-        
+
+        <header class="page-header">
+            <h1>Free HIIT &amp; Tabata Interval Timer</h1>
+            <p>Customizable browser timer for HIIT, Tabata, boxing rounds, and EMOM. No install, no ads.</p>
+        </header>
+
         <div class="controls-wrapper">
             <button class="btn-main" id="btnMain">START</button>
             <button class="btn-reset" id="btnReset">
@@ -291,56 +456,83 @@
             <div class="rounds-info" id="roundsDisplay">Round: 0 / 0</div>
         </div>
 
-        <!-- СПОЙЛЕР НАСТРОЕК (Идентичный FAQ) -->
         <details class="spoiler-container" id="settingsDetails" open>
             <summary class="btn-spoiler">⚙️ Timer Settings</summary>
             <div class="settings-panel">
                 <div class="input-group">
                     <label>Prep (sec)</label>
-                    <input type="number" id="inputPrepTime" value="10" min="0">
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" id="inputPrepTime" value="10" min="0">
                 </div>
                 <div class="input-group">
                     <label>Work (sec)</label>
-                    <input type="number" id="inputWorkTime" value="60" min="1">
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" id="inputWorkTime" value="60" min="1">
                 </div>
                 <div class="input-group">
                     <label>Rounds</label>
-                    <input type="number" id="inputRounds" value="3" min="1">
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" id="inputRounds" value="3" min="1">
                 </div>
                 <div class="input-group">
                     <label>Rest (sec)</label>
-                    <input type="number" id="inputRestTime" value="15" min="0">
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" id="inputRestTime" value="15" min="0">
                 </div>
             </div>
         </details>
 
-        <!-- СПОЙЛЕР FAQ (Идентичный Настройкам) -->
         <details class="spoiler-container" style="margin-bottom: 40px;">
             <summary class="btn-spoiler">📖 Read Guide & FAQ</summary>
-            <div style="margin-top: 15px; padding: 25px; color: var(--text-muted); font-size: 14px; line-height: 1.6; background-color: var(--surface-color); border-radius: 20px; text-align: left;">
-                <h2 style="color: var(--text-main); font-size: 18px; margin-bottom: 10px; font-weight: 800;">High-Intensity Interval Timer (TL;DR)</h2>
-                <p style="margin-bottom: 20px;">This is a free, web-based customizable <strong>interval timer</strong> engineered for High-Intensity Interval Training (HIIT), circuit workouts, and boxing. It features traffic-light color coding (Prepare, Work, Rest) and runs smoothly in any mobile or desktop browser without app installation. Research shows that structured HIIT protocols can improve VO2 max and anaerobic capacity significantly faster than steady-state cardio.</p>
-                <h3 style="color: var(--text-main); font-size: 16px; margin-bottom: 10px; font-weight: 800;">Popular Training Protocols</h3>
-                <ul style="margin-bottom: 25px; padding-left: 20px;">
-                    <li style="margin-bottom: 8px;"><strong>Tabata:</strong> 20s Work / 10s Rest, 8 rounds.</li>
-                    <li style="margin-bottom: 8px;"><strong>Boxing:</strong> 3 min Work (180s) / 1 min Rest (60s), 10-12 rounds.</li>
-                    <li style="margin-bottom: 8px;"><strong>EMOM:</strong> 60s Work / 0s Rest (perform reps at the start of each minute).</li>
+            <div class="faq-content" style="margin-top: 15px; padding: 25px; color: var(--text-muted); font-size: 14px; line-height: 1.6; background-color: var(--surface-color); border-radius: 20px; text-align: left;">
+                <h2>High-Intensity Interval Timer</h2>
+                <p>This is a free, web-based customizable <strong>interval timer</strong> built for High-Intensity Interval Training (HIIT), circuit workouts, boxing, and CrossFit-style EMOM sessions. It uses traffic-light color coding (Prepare, Work, Rest), runs in any mobile or desktop browser without app installation, and keeps your screen awake while a workout is in progress.</p>
+
+                <h3>Popular Training Protocols</h3>
+                <ul>
+                    <li><strong>Tabata:</strong> 20s Work / 10s Rest, 8 rounds. Total: 4 minutes.</li>
+                    <li><strong>Boxing:</strong> 180s Work / 60s Rest, 10–12 rounds.</li>
+                    <li><strong>EMOM:</strong> 60s Work / 0s Rest. Perform target reps at the start of each minute, rest the remainder.</li>
+                    <li><strong>HIIT 30/30:</strong> 30s Work / 30s Rest, 10–20 rounds. A balanced starter protocol.</li>
                 </ul>
-                <h3 style="color: var(--text-main); font-size: 16px; margin-bottom: 15px; font-weight: 800;">Frequently Asked Questions</h3>
-                <div style="margin-bottom: 12px; border-bottom: 1px solid #2d333b; padding-bottom: 12px;">
-                    <strong style="color: #ffffff; font-weight: 600;">Does this fitness timer work offline?</strong>
-                    <p style="margin-top: 5px; color: #8b949e;">Yes. Once loaded in your browser, it relies entirely on your device's internal clock system. It will continue to track perfectly even if you lose internet connection.</p>
+
+                <h3>Frequently Asked Questions</h3>
+
+                <div class="faq-item">
+                    <strong>Does this fitness timer work offline?</strong>
+                    <p>Yes. Once the page loads, it runs entirely on your device's internal clock and keeps working without an internet connection.</p>
                 </div>
-                <div style="margin-bottom: 12px; border-bottom: 1px solid transparent; padding-bottom: 0;">
-                    <strong style="color: #ffffff; font-weight: 600;">Why use a web timer instead of an app?</strong>
-                    <p style="margin-top: 5px; color: #8b949e;">Instant access across all devices without draining storage space, requiring permissions, or displaying aggressive full-screen ads.</p>
+
+                <div class="faq-item">
+                    <strong>How do I set up a Tabata timer?</strong>
+                    <p>Set Work to 20 seconds, Rest to 10 seconds, and Rounds to 8. Add a 10 second prep if you want a countdown before the first interval. Press START to begin.</p>
+                </div>
+
+                <div class="faq-item">
+                    <strong>Can I use this as a boxing round timer?</strong>
+                    <p>Yes. Set Work to 180 seconds (3 minutes) and Rest to 60 seconds (1 minute), then choose 10 to 12 rounds for a standard amateur or pro boxing session.</p>
+                </div>
+
+                <div class="faq-item">
+                    <strong>Will the screen stay on during my workout?</strong>
+                    <p>Yes. The timer uses the Screen Wake Lock API on supported browsers and a fallback method elsewhere, so your screen will not dim or lock while a workout is running.</p>
+                </div>
+
+                <div class="faq-item">
+                    <strong>Does the timer make sounds?</strong>
+                    <p>Yes. There are distinct tones for the start of work, start of rest, the final three second countdown of each phase, and a finishing chime. You can mute everything with the speaker button in the top right corner.</p>
+                </div>
+
+                <div class="faq-item">
+                    <strong>Are my settings saved between sessions?</strong>
+                    <p>Yes. Your prep, work, rest, rounds and mute preferences are stored locally in your browser, so the timer reopens with your previous configuration.</p>
+                </div>
+
+                <div class="faq-item">
+                    <strong>Why use a web timer instead of an app?</strong>
+                    <p>A web timer gives you instant access on any device with no install, no permissions, no storage usage, and no ads. It is also easier to share with a training partner — just send a link.</p>
                 </div>
             </div>
         </details>
 
     </div>
 
-    <!-- Кнопка доната (Buy Me a Coffee) -->
     <div style="margin-bottom: 40px; display: flex; justify-content: center; width: 100%;">
         <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" 
             data-name="bmc-button" 
